@@ -11,12 +11,13 @@ import UIKit
 
 final class CanadaFactsDetailViewController: UIViewController {
     
-    var selectedDetails: Row?
-    static func viewController(selectedFacts facts: Row?) -> CanadaFactsDetailViewController{
+    var selectedDetails: CanadaFacts?
+    static func viewController(selectedFacts facts: CanadaFacts?) -> CanadaFactsDetailViewController {
         let viewController = CanadaFactsDetailViewController()
         viewController.selectedDetails = facts
         return viewController
     }
+    
     let infoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +26,6 @@ final class CanadaFactsDetailViewController: UIViewController {
     
     let descriptionTextView: UITextView = {
         let textView = UITextView()
-        //        textView.text = selectedDetails?.description
         textView.font = UIFont.boldSystemFont(ofSize: 18)
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.textAlignment = .center
@@ -33,23 +33,23 @@ final class CanadaFactsDetailViewController: UIViewController {
         textView.isScrollEnabled = false
         return textView
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setUpNavigation()
-        // Do any additional setup after loading the view.
         view.addSubview(infoImageView)
         view.addSubview(descriptionTextView)
+        view.backgroundColor = .white
         if let imageStrnig = selectedDetails?.imageHref, let imageURL = URL(string: imageStrnig){
             infoImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholder-image"))
-
         }
-        descriptionTextView.text = selectedDetails?.rowDescription
+        descriptionTextView.text = selectedDetails?.factDescription
         setupLayout()
     }
-    func setUpNavigation() {
+    
+    private func setUpNavigation() {
             navigationItem.title = selectedDetails?.title
-               self.navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
+               self.navigationController?.navigationBar.barTintColor = UIColor.cyan
                self.navigationController?.navigationBar.isTranslucent = false
         }
     private func setupLayout() {

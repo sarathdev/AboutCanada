@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CandaInfoTableViewCell: UITableViewCell {
+final class CandaInfoTableViewCell: UITableViewCell {
     
     var title: String?
     var infoImage: UIImage?
@@ -23,7 +23,7 @@ class CandaInfoTableViewCell: UITableViewCell {
     
     var infoImageView: UIImageView = {
         var imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "placeholder-image")
+        imageView.image = UIImage(named: "placeholder-image")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -37,37 +37,45 @@ class CandaInfoTableViewCell: UITableViewCell {
         textView.isUserInteractionEnabled = false
         return textView
     }()
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //Adding the subviews to the custom cell
-        
-
-        self.addSubview(titleLabel)
-        self.addSubview(infoImageView)
-        self.addSubview(detailDescriptionTextView)
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func layoutInfoImageView() {
         infoImageView.layer.cornerRadius = 25
         infoImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         infoImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         infoImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         infoImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//        infoImageView.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        
-        //constraints for title label
+    }
+    
+    private func layoutTitleLabel() {
         titleLabel.leftAnchor.constraint(equalTo: self.infoImageView.rightAnchor).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: self.detailDescriptionTextView.topAnchor).isActive = true
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        
-        
-        //constraints for detailDescriptionTextView
+    }
+    
+    private func layoutDetailDescriptionTextView() {
         detailDescriptionTextView.leftAnchor.constraint(equalTo: self.infoImageView.rightAnchor).isActive = true
         detailDescriptionTextView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         detailDescriptionTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         detailDescriptionTextView.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor).isActive = true
-        
-        
     }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //Adding the subviews to the custom cell
+        self.addSubview(titleLabel)
+        self.addSubview(infoImageView)
+        self.addSubview(detailDescriptionTextView)
+
+        layoutInfoImageView()
+        layoutTitleLabel()
+        layoutDetailDescriptionTextView()
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -80,20 +88,6 @@ class CandaInfoTableViewCell: UITableViewCell {
         if let title = title{
             self.titleLabel.text = title
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

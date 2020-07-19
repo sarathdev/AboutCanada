@@ -9,21 +9,20 @@
 import Foundation
 
 // MARK: - CanadaBaseModel
-
-struct BaseModel: Codable {
+struct Facts: Codable {
     let title: String?
-    let rows: [Row]?
+    let rows: [CanadaFacts]?
 }
 
 // MARK: - Row
 
-struct Row: Codable {
-    let title, rowDescription: String?
+struct CanadaFacts: Codable {
+    let title, factDescription: String?
     let imageHref: String?
 
     enum CodingKeys: String, CodingKey {
         case title
-        case rowDescription = "description"
+        case factDescription = "description"
         case imageHref
     }
 }
