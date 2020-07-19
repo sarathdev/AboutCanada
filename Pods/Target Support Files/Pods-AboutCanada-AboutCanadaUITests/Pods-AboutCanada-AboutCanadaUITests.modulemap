@@ -1,0 +1,6 @@
+framework module Pods_AboutCanada_AboutCanadaUITests {
+  umbrella header "Pods-AboutCanada-AboutCanadaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

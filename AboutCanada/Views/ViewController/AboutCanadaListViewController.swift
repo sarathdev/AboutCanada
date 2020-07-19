@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class AboutCanadaListViewController: UIViewController {
     var factTitle: String?
@@ -18,6 +19,8 @@ class AboutCanadaListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutCanadaTableViewConstraints()
+        self.setupTableView()
+        
 
         self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
@@ -29,8 +32,8 @@ class AboutCanadaListViewController: UIViewController {
             self?.factArray = facts.rows
             
                 DispatchQueue.main.async {
-                    self?.setupTableView()
                     self?.setUpNavigation()
+                    self?.canadaFactsListTableView.reloadData()
                 }
             case let .failure(error): self?.showAlert(errorType: .apiError)
             }
@@ -73,22 +76,30 @@ class AboutCanadaListViewController: UIViewController {
 }
 extension AboutCanadaListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return factArray!.count
+        if let array = factArray{
+            return array.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let canadaCell = tableView.dequeueReusableCell(withIdentifier: "CandaInfoTableViewCell", for: indexPath) as! CandaInfoTableViewCell
-        if let imageString = factArray?[indexPath.row].imageHref{
-            canadaCell.infoImageView.loadThumbnail(urlSting: imageString)
+        if let imageStringURL = factArray?[indexPath.row].imageHref{
+            canadaCell.infoImageView.sd_setImage(with: URL(string: imageStringURL), placeholderImage: UIImage(named: "placeholder-image"))
         }
         canadaCell.titleLabel.text = factArray?[indexPath.row].title
         canadaCell.detailDescriptionTextView.text = factArray?[indexPath.row].rowDescription
-        canadaCell.layoutSubviews()
+//        canadaCell.layoutSubviews()
+//        view.layoutIfNeeded()
+        canadaCell.infoImageView.clipsToBounds = true
+        canadaCell.infoImageView.layer.cornerRadius = 25
+
         return canadaCell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var detailvc = CanadaFactsDetailViewController.viewController(selectedFacts: )
-               self.navigationController?.pushViewController(CanadaFactsDetailViewController(), animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailvc = CanadaFactsDetailViewController.viewController(selectedFacts:(factArray?[indexPath.row])! )
+               self.navigationController?.pushViewController(detailvc, animated: true)
     }
     
     

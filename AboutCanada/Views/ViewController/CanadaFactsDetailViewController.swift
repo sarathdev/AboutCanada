@@ -12,18 +12,13 @@ import UIKit
 final class CanadaFactsDetailViewController: UIViewController {
     
     var selectedDetails: Row?
-    static func viewController(selectedFacts facts: Row) -> CanadaFactsDetailViewController{
+    static func viewController(selectedFacts facts: Row?) -> CanadaFactsDetailViewController{
         let viewController = CanadaFactsDetailViewController()
         viewController.selectedDetails = facts
         return viewController
     }
     let infoImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "placeholder-image.png"))
-      
-//        if let imageString = selectedDetails?.imageHref{
-//            imageView.loadThumbnail(urlSting: imageString)
-//        }
-        
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -45,6 +40,12 @@ final class CanadaFactsDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.addSubview(infoImageView)
         view.addSubview(descriptionTextView)
+        if let imageStrnig = selectedDetails?.imageHref, let imageURL = URL(string: imageStrnig){
+            infoImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholder.png"))
+
+        }
+
+//        infoImageView.sd_internalSetImage(with: selectedDetails?.imageHref, placeholderImage: #imageLiteral(resourceName: "placeholder-image"), options: SDWebImageOption, context: nil, setImageBlock: nil, progress: nil, completed: nil)
         setupLayout()
     }
     private func setupLayout() {
