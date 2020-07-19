@@ -16,6 +16,7 @@
 		693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */; };
 		693E3EC824C4434F00A151D7 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC724C4434F00A151D7 /* NetworkServiceManager.swift */; };
 		693E3ECA24C4477000A151D7 /* CanadaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC924C4477000A151D7 /* CanadaModel.swift */; };
+		693E3ECC24C44E8300A151D7 /* CandaInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3ECB24C44E8300A151D7 /* CandaInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCanadaListViewController.swift; sourceTree = "<group>"; };
 		693E3EC724C4434F00A151D7 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
 		693E3EC924C4477000A151D7 /* CanadaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaModel.swift; sourceTree = "<group>"; };
+		693E3ECB24C44E8300A151D7 /* CandaInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandaInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		693E3EC224C4320F00A151D7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				693E3ECB24C44E8300A151D7 /* CandaInfoTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */,
 				690A485B24C40D290097CD50 /* SceneDelegate.swift in Sources */,
 				693E3ECA24C4477000A151D7 /* CanadaModel.swift in Sources */,
+				693E3ECC24C44E8300A151D7 /* CandaInfoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
