@@ -14,30 +14,41 @@ class AboutCanadaListViewController: UIViewController {
     var factArray: [Row]?
     
     let canadaFactsListTableView = UITableView()
+    var refreshControl = UIRefreshControl()
+    var activityView: UIActivityIndicatorView?
+
+
     var safeArea: UILayoutGuide!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutCanadaTableViewConstraints()
         self.setupTableView()
-    
+        fetchCanadaFacts()
         self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
-        NetworkServiceManager.sharedInstance.fetchCanadaFacts { [weak self] result in
-            switch result {
-            case let .success(facts): print(facts)
-                // assing to variable
-            self?.factTitle = facts.title
-            self?.factArray = facts.rows
-            
-                DispatchQueue.main.async {
-                    self?.setUpNavigation()
-                    self?.canadaFactsListTableView.reloadData()
-                }
-            case let .failure(error): self?.showAlert(errorType: .apiError)
-            }
-        }
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        canadaFactsListTableView.addSubview(refreshControl) // not required when using UITableViewController
+       
     }
+    @objc func refresh(_ sender: AnyObject) {
+      fetchCanadaFacts()
+    }
+     func showActivityIndicator() {
+         activityView = UIActivityIndicatorView(style: .whiteLarge)
+         activityView?.center = self.view.center
+         self.view.addSubview(activityView!)
+         activityView?.startAnimating()
+     }
+
+     func hideActivityIndicator(){
+         if (activityView != nil){
+             activityView?.stopAnimating()
+         }
+     }
+
+    
     func setUpNavigation() {
         navigationItem.title = self.factTitle
         self.navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
@@ -48,12 +59,40 @@ class AboutCanadaListViewController: UIViewController {
         print("Alert!!!!!!:\(errorType)")
     }
     func setupTableView(){
+        // Add Refresh Control to Table View
+        // Configure Refresh Control
+        
         self.canadaFactsListTableView.dataSource = self
         self.canadaFactsListTableView.delegate = self
         self.canadaFactsListTableView.register(CandaInfoTableViewCell.self, forCellReuseIdentifier: "CandaInfoTableViewCell")
         canadaFactsListTableView.rowHeight = UITableView.automaticDimension
           canadaFactsListTableView.estimatedRowHeight = 420
         canadaFactsListTableView.tableFooterView = UIView()
+    }
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        fetchCanadaFacts()
+    }
+    func fetchCanadaFacts() {
+            NetworkServiceManager.sharedInstance.fetchCanadaFacts { [weak self] result in
+            DispatchQueue.main.async {
+                self?.refreshControl.endRefreshing()
+            }
+            
+            switch result {
+            case let .success(facts): print(facts)
+            // assing to variable
+            self?.factTitle = facts.title
+            self?.factArray = facts.rows
+            //Refreshing UITableView on Main Thread
+            DispatchQueue.main.async {
+                self?.setUpNavigation()
+                self?.canadaFactsListTableView.reloadData()
+                }
+            case let .failure(error): self?.showAlert(errorType: .apiError)
+            }
+        }
+        
     }
     func layoutCanadaTableViewConstraints() {
         view.addSubview(canadaFactsListTableView)
