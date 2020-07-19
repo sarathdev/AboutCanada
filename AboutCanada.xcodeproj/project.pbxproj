@@ -15,6 +15,7 @@
 		690A487B24C40D2D0097CD50 /* AboutCanadaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A487A24C40D2D0097CD50 /* AboutCanadaUITests.swift */; };
 		693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */; };
 		693E3EC824C4434F00A151D7 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC724C4434F00A151D7 /* NetworkServiceManager.swift */; };
+		693E3ECA24C4477000A151D7 /* CanadaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC924C4477000A151D7 /* CanadaModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		690A487C24C40D2D0097CD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCanadaListViewController.swift; sourceTree = "<group>"; };
 		693E3EC724C4434F00A151D7 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
+		693E3EC924C4477000A151D7 /* CanadaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 		693E3EC424C4325600A151D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				693E3EC924C4477000A151D7 /* CanadaModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				690A485924C40D290097CD50 /* AppDelegate.swift in Sources */,
 				693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */,
 				690A485B24C40D290097CD50 /* SceneDelegate.swift in Sources */,
+				693E3ECA24C4477000A151D7 /* CanadaModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
