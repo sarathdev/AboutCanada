@@ -13,6 +13,7 @@
 		690A486524C40D2D0097CD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690A486324C40D2D0097CD50 /* LaunchScreen.storyboard */; };
 		690A487024C40D2D0097CD50 /* AboutCanadaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A486F24C40D2D0097CD50 /* AboutCanadaTests.swift */; };
 		690A487B24C40D2D0097CD50 /* AboutCanadaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690A487A24C40D2D0097CD50 /* AboutCanadaUITests.swift */; };
+		693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		690A487624C40D2D0097CD50 /* AboutCanadaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AboutCanadaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		690A487A24C40D2D0097CD50 /* AboutCanadaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCanadaUITests.swift; sourceTree = "<group>"; };
 		690A487C24C40D2D0097CD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCanadaListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		693E3EC124C431F200A151D7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				693E3EC524C4379000A151D7 /* AboutCanadaListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				690A485924C40D290097CD50 /* AppDelegate.swift in Sources */,
+				693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */,
 				690A485B24C40D290097CD50 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
