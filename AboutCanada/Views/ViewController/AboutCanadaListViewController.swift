@@ -86,6 +86,10 @@ extension AboutCanadaListViewController: UITableViewDataSource, UITableViewDeleg
         canadaCell.layoutSubviews()
         return canadaCell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var detailvc = CanadaFactsDetailViewController.viewController(selectedFacts: )
+               self.navigationController?.pushViewController(CanadaFactsDetailViewController(), animated: true)
+    }
     
     
 }
