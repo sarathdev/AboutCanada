@@ -16,12 +16,15 @@ class CandaInfoTableViewCell: UITableViewCell {
     
     var titleLabel: UILabel = {
         var label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var infoImageView: UIImageView = {
         var imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "placeholder-image")
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -37,14 +40,18 @@ class CandaInfoTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         //Adding the subviews to the custom cell
+        
+
         self.addSubview(titleLabel)
         self.addSubview(infoImageView)
         self.addSubview(detailDescriptionTextView)
-        
+
+        infoImageView.layer.cornerRadius = 25
         infoImageView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         infoImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        infoImageView.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        
+        infoImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        infoImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        infoImageView.widthAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         
         //constraints for title label
         titleLabel.leftAnchor.constraint(equalTo: self.infoImageView.rightAnchor).isActive = true
@@ -63,6 +70,7 @@ class CandaInfoTableViewCell: UITableViewCell {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         if let detailDescription = detailDescription{
             self.detailDescriptionTextView.text = detailDescription
         }
