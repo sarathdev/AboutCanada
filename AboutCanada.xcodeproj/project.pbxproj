@@ -17,6 +17,7 @@
 		693E3EC824C4434F00A151D7 /* NetworkServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC724C4434F00A151D7 /* NetworkServiceManager.swift */; };
 		693E3ECA24C4477000A151D7 /* CanadaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3EC924C4477000A151D7 /* CanadaModel.swift */; };
 		693E3ECC24C44E8300A151D7 /* CandaInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3ECB24C44E8300A151D7 /* CandaInfoTableViewCell.swift */; };
+		693E3ED024C45A3A00A151D7 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693E3ECF24C45A3A00A151D7 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		693E3EC724C4434F00A151D7 /* NetworkServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceManager.swift; sourceTree = "<group>"; };
 		693E3EC924C4477000A151D7 /* CanadaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanadaModel.swift; sourceTree = "<group>"; };
 		693E3ECB24C44E8300A151D7 /* CandaInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandaInfoTableViewCell.swift; sourceTree = "<group>"; };
+		693E3ECF24C45A3A00A151D7 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				690A486124C40D2D0097CD50 /* Assets.xcassets */,
 				690A486324C40D2D0097CD50 /* LaunchScreen.storyboard */,
 				690A486624C40D2D0097CD50 /* Info.plist */,
+				693E3ECF24C45A3A00A151D7 /* UIImageViewExtension.swift */,
 			);
 			path = AboutCanada;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693E3EC824C4434F00A151D7 /* NetworkServiceManager.swift in Sources */,
+				693E3ED024C45A3A00A151D7 /* UIImageViewExtension.swift in Sources */,
 				690A485924C40D290097CD50 /* AppDelegate.swift in Sources */,
 				693E3EC624C4379000A151D7 /* AboutCanadaListViewController.swift in Sources */,
 				690A485B24C40D290097CD50 /* SceneDelegate.swift in Sources */,

@@ -78,10 +78,12 @@ extension AboutCanadaListViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let canadaCell = tableView.dequeueReusableCell(withIdentifier: "CandaInfoTableViewCell", for: indexPath) as! CandaInfoTableViewCell
-        canadaCell.backgroundColor = .blue
-        canadaCell.textLabel?.text = factArray?[indexPath.row].title
+        if let imageString = factArray?[indexPath.row].imageHref{
+            canadaCell.infoImageView.loadThumbnail(urlSting: imageString)
+        }
+        canadaCell.titleLabel.text = factArray?[indexPath.row].title
+        canadaCell.detailDescriptionTextView.text = factArray?[indexPath.row].rowDescription
         canadaCell.layoutSubviews()
-          
         return canadaCell
     }
     
