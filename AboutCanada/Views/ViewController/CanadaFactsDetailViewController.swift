@@ -36,18 +36,22 @@ final class CanadaFactsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        setUpNavigation()
         // Do any additional setup after loading the view.
         view.addSubview(infoImageView)
         view.addSubview(descriptionTextView)
         if let imageStrnig = selectedDetails?.imageHref, let imageURL = URL(string: imageStrnig){
-            infoImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholder.png"))
+            infoImageView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholder-image"))
 
         }
-
-//        infoImageView.sd_internalSetImage(with: selectedDetails?.imageHref, placeholderImage: #imageLiteral(resourceName: "placeholder-image"), options: SDWebImageOption, context: nil, setImageBlock: nil, progress: nil, completed: nil)
+        descriptionTextView.text = selectedDetails?.rowDescription
         setupLayout()
     }
+    func setUpNavigation() {
+            navigationItem.title = selectedDetails?.title
+               self.navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 0.2431372549, green: 0.7647058824, blue: 0.8392156863, alpha: 1)
+               self.navigationController?.navigationBar.isTranslucent = false
+        }
     private func setupLayout() {
            // Constraints for infoImageView
            infoImageView.translatesAutoresizingMaskIntoConstraints = false

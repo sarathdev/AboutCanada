@@ -20,8 +20,7 @@ class AboutCanadaListViewController: UIViewController {
         super.viewDidLoad()
         layoutCanadaTableViewConstraints()
         self.setupTableView()
-        
-
+    
         self.view.backgroundColor = .white
         // Do any additional setup after loading the view.
         NetworkServiceManager.sharedInstance.fetchCanadaFacts { [weak self] result in
@@ -54,6 +53,7 @@ class AboutCanadaListViewController: UIViewController {
         self.canadaFactsListTableView.register(CandaInfoTableViewCell.self, forCellReuseIdentifier: "CandaInfoTableViewCell")
         canadaFactsListTableView.rowHeight = UITableView.automaticDimension
           canadaFactsListTableView.estimatedRowHeight = 420
+        canadaFactsListTableView.tableFooterView = UIView()
     }
     func layoutCanadaTableViewConstraints() {
         view.addSubview(canadaFactsListTableView)
