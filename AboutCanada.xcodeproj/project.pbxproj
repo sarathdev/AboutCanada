@@ -122,7 +122,6 @@
 		690A485724C40D290097CD50 /* AboutCanada */ = {
 			isa = PBXGroup;
 			children = (
-				693E3ED324C4A98E00A151D7 /* Common */,
 				693E3EC424C4325600A151D7 /* Model */,
 				693E3EC324C4323100A151D7 /* ServiceManager */,
 				693E3EC024C431DE00A151D7 /* Views */,
@@ -193,13 +192,6 @@
 				693E3EC924C4477000A151D7 /* CanadaModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		693E3ED324C4A98E00A151D7 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		700AAC830CDD4DE28EBE91DF /* Pods */ = {
