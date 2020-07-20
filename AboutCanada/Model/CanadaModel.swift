@@ -11,7 +11,7 @@ import Foundation
 // MARK: - CanadaBaseModel
 struct Facts: Codable {
     let title: String?
-    let rows: [CanadaFacts]?
+    var rows: [CanadaFacts]?
 }
 
 // MARK: - Row

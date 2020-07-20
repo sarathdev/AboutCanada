@@ -25,7 +25,9 @@ final class NetworkServiceManager{
             do {
                 // make sure this JSON is in the format we expect
                 if let encodedData = String(decoding: data, as: UTF8.self).data(using: .utf8) {
-                    let data = try JSONDecoder().decode(Facts.self, from: encodedData)
+                    var data = try JSONDecoder().decode(Facts.self, from: encodedData)
+                    let filteredRows = data.rows?.filter({$0.title != nil})
+                    data.rows = filteredRows
                     completion(.success(data))
                 }
             } catch {
