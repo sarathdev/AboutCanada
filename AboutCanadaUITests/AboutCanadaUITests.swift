@@ -31,9 +31,29 @@ class AboutCanadaUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    func testHomeScreen() {
+        
+        let app = XCUIApplication()
+        app.launch()
+        let label = app.navigationBars["About Canada"].staticTexts["About Canada"]
+        let exists = NSPredicate(format: "exists == 1")
+
+        expectation(for: exists, evaluatedWith: label, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
+        
+    }
+    
+    func testNavigationTODetailScreen() {
+        
+        let app = XCUIApplication()
+        app.launch()
+        let myTable = app.tables.matching(identifier: "canadaFactsListTableView")
+        let cell = myTable.cells.element(matching: .cell, identifier: "myCell")
+        cell.tap()
+    }
 
     func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+                if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
             measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
                 XCUIApplication().launch()
